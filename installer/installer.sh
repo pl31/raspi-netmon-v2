@@ -6,7 +6,7 @@ set -e
 echo "---> Running netmon installer"
 
 echo "---> Install required packages"
-sudo apt install -y git lighttpd tcpdump python3-setuptools python3-setuptools-git python3-netifaces
+sudo apt install -y git fbterm lighttpd tcpdump python3-setuptools python3-setuptools-git python3-netifaces
 
 echo "---> Configure webserver"
 sudo rm -f /var/www/html/index.lighttpd.html
@@ -23,7 +23,8 @@ sudo cp ~/raspi-netmon-v2/installer/promiscuous@.service /etc/systemd/system
 sudo systemctl enable promiscuous@eth0.service
 
 echo "---> Add netmon to .bash_login"
-echo python3 ~/raspi-netmon-v2/netmon/netmon.py -s 20x13 > ~/.bash_login
+echo >> ~/.profile
+echo "clear; fbterm -r 3 -s 54 -- python3 ~/raspi-netmon-v2/netmon/netmon.py -s 20x13" >> ~/.profile
 
 echo "---> Enable tmpfs for tcpdump"
 sudo cp ~/raspi-netmon/installer/var-run-tcpdump_eth0.mount /etc/systemd/system
