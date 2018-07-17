@@ -4,6 +4,7 @@ import argparse
 import time
 import datetime
 import sys
+import os
 import subprocess
 import re
 import math
@@ -61,6 +62,8 @@ while True:
 
   lineIP = get_ip(interface).rjust(width)
   linePkts = '{}{}{:9d} pkt/s'.format(indicator, ' ' * (width-16), rx_packets_delta)
+
+  os.system('clear')
 
   print(lineIP)
   print(linePkts)
