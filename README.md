@@ -18,7 +18,7 @@ For pitft capacitive 2.8" use [3,4,y - console on PiTFT]
 
 Download and execute the installer:
 ```
-wget -O - https://raw.githubusercontent.com/pl31/raspi-netmon/master/installer/installer.sh | sh
+wget -O - https://raw.githubusercontent.com/pl31/raspi-netmon-v2/master/installer/installer.sh | sh
 ```
 
 If happy with the result, make SD-Card read-only:
