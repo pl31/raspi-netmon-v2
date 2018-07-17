@@ -12,7 +12,7 @@ Create a fresh installation of raspian-lite:
 Enable pitft:
 Follow the guide at https://learn.adafruit.com/adafruit-2-2-pitft-hat-320-240-primary-display-for-raspberry-pi/easy-install
 ```
-wget -O - https://raw.githubusercontent.com/adafruit/Raspberry-Pi-Installer-Scripts/master/adafruit-pitft.sh | sudo sh
+sudo bash -c "$(wget -O - https://raw.githubusercontent.com/adafruit/Raspberry-Pi-Installer-Scripts/master/adafruit-pitft.sh)"
 ```
 For pitft capacitive 2.8" use [3,4,y - console on PiTFT]
 
