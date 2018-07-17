@@ -24,7 +24,7 @@ sudo systemctl enable promiscuous@eth0.service
 
 echo "---> Add netmon to .bash_login"
 echo >> ~/.profile
-echo "clear; fbterm -r 3 -s 54 -- python3 ~/raspi-netmon-v2/netmon/netmon.py -s 20x13" >> ~/.profile
+echo "clear; fbterm -r 3 -s 52 -- python3 ~/raspi-netmon-v2/netmon/netmon.py -s 20x13" >> ~/.profile
 
 echo "---> Enable tmpfs for tcpdump"
 sudo cp ~/raspi-netmon-v2/installer/var-run-tcpdump_eth0.mount /etc/systemd/system
