@@ -15,7 +15,7 @@ sudo lighttpd-enable-mod dir-listing || true
 sudo sed '/^server.errorlog/s/^/#/g' -i /etc/lighttpd/lighttpd.conf
 
 echo "---> Freshly clone repository to home folder"
-rm -rf ~/raspi-netmon/
+rm -rf ~/raspi-netmon-v2/
 git clone --depth=1 https://github.com/pl31/raspi-netmon-v2.git ~/raspi-netmon-v2/
 
 echo "---> Set promiscuous mode for eth0"
