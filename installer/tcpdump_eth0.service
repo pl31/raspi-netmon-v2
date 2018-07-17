@@ -1,0 +1,12 @@
+[Unit]
+Description=tcpdump eth0
+
+[Service]
+ExecStart=/home/pi/raspi-netmon/netmon/tcpdump_eth0.sh
+#StandardOutput=inherit
+#StandardError=inherit
+Restart=always
+#User=root
+
+[Install]
+WantedBy=multi-user.target
