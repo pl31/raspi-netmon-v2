@@ -9,16 +9,15 @@ Create a fresh installation of raspian-lite:
   - Change timezone
   - Enable ssh, i2c
 
+Enable pitft:
+Follow the guide at https://learn.adafruit.com/adafruit-2-2-pitft-hat-320-240-primary-display-for-raspberry-pi/easy-install
+```
+wget -O - https://raw.githubusercontent.com/adafruit/Raspberry-Pi-Installer-Scripts/master/adafruit-pitft.sh | sudo sh
+```
+
 Download and execute the installer:
 ```
 wget -O - https://raw.githubusercontent.com/pl31/raspi-netmon/master/installer/installer.sh | sh
-```
-
-Per default netmon uses a 20x4 display. To use 16x2 execute:
-
-```
-sudo systemctl disable netmon@20x4.service 
-sudo systemctl enable netmon@16x2.service 
 ```
 
 If happy with the result, make SD-Card read-only:
