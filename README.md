@@ -1,4 +1,4 @@
-# raspi-netmon
+# raspi-netmon-v2
 
 Create a fresh installation of raspian-lite:
 - https://www.raspberrypi.org/downloads/raspbian/
