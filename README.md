@@ -14,6 +14,7 @@ Follow the guide at https://learn.adafruit.com/adafruit-2-2-pitft-hat-320-240-pr
 sudo bash -c "$(wget -O - https://raw.githubusercontent.com/adafruit/Raspberry-Pi-Installer-Scripts/master/adafruit-pitft.sh)"
 ```
 For pitft capacitive 2.8" use [3,4,y - console on PiTFT]
+[Careful, to use fbterm you need to configure it twice: first HDMI Mirror, afterwards Console]
 
 Download and execute the installer:
 ```
