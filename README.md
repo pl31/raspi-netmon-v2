@@ -21,7 +21,7 @@ Download and execute the installer:
 wget -O - https://raw.githubusercontent.com/pl31/raspi-netmon-v2/master/installer/installer.sh | sh
 ```
 
-If happy with the result, make SD-Card read-only:
+If happy with the result, make SD-Card read-only (install cron+ntp for timesync):
 ```
 sudo bash -c "$(wget -O - https://raw.githubusercontent.com/adafruit/Raspberry-Pi-Installer-Scripts/master/read-only-fs.sh)"
 ```
