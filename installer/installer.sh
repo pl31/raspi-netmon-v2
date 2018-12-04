@@ -7,7 +7,7 @@ echo "---> Running netmon installer"
 
 echo "---> Install required packages"
 sudo apt install -y git lighttpd tcpdump \
-  python3-setuptools python3-setuptools-git python3-git python3-netifaces python3-tk \
+  python3-setuptools python3-setuptools-git python3-pip python3-netifaces python3-tk \
   xorg openbox lightdm
 
 echo "---> Install required python packages"
