@@ -5,6 +5,10 @@ set -e
 
 echo "---> Running netmon installer"
 
+echo "---> Upgrade installation"
+sudo apt update
+sudo apt -y upgrade
+
 echo "---> Install required packages"
 sudo apt install -y git lighttpd tcpdump \
   python3-setuptools python3-setuptools-git python3-pip python3-netifaces python3-tk \

@@ -28,9 +28,12 @@ sudo bash -c "$(wget -O - https://raw.githubusercontent.com/adafruit/Raspberry-P
 
 ### Mouse inverted
 
-# --- added by adafruit-pitft-helper Tue  4 Dec 18:39:26 CET 2018 ---
-dtparam=spi=on
-dtparam=i2c1=on
-dtparam=i2c_arm=on
-dtoverlay=pitft28-capacitive,rotate=90,speed=64000000,fps=30
-# --- end adafruit-pitft-helper Tue  4 Dec 18:39:26 CET 2018 ---
+/usr/share/X11/xorg.conf.d/20-calibration.conf
+
+Section "InputClass"
+        Identifier "FocalTech Touchscreen Calibration"
+        MatchProduct "EP0110M09"
+        MatchDevicePath "/dev/input/event*"
+        Driver "libinput"
+        Option "TransformationMatrix" "-1 0 1 0 -1 1 0 0 1"
+EndSection
