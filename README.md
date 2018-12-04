@@ -9,7 +9,7 @@
 - configure device as needed using `sudo raspi-config`
   - Change timezone
 
-## Download and execute netmon
+## Download and install netmon
 ```
 wget -O - https://raw.githubusercontent.com/pl31/raspi-netmon-v2/master/installer/installer.sh | sh
 ```
