@@ -37,8 +37,10 @@ sudo bash -c "$(wget -O - https://raw.githubusercontent.com/adafruit/Raspberry-P
 
 ### Mouse inverted
 
-/usr/share/X11/xorg.conf.d/20-calibration.conf
+Mouse might be inverted, when PiTFT was installed before xorg. Make sure that
+`/usr/share/X11/xorg.conf.d/20-calibration.conf` contains:
 
+```
 Section "InputClass"
         Identifier "FocalTech Touchscreen Calibration"
         MatchProduct "EP0110M09"
@@ -46,3 +48,4 @@ Section "InputClass"
         Driver "libinput"
         Option "TransformationMatrix" "-1 0 1 0 -1 1 0 0 1"
 EndSection
+```
