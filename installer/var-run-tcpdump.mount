@@ -3,7 +3,7 @@ Description=Mount tmpfs for tcpdump
 
 [Mount]
 What=tmpfs
-Where=/var/run/tcpdump_eth0
+Where=/var/run/tcpdump
 Type=tmpfs
 Options=mode=1777,strictatime
 
