@@ -19,7 +19,7 @@ rm -rf ~/raspi-netmon-v2/
 git clone --depth=1 https://github.com/pl31/raspi-netmon-v2.git ~/raspi-netmon-v2/
 
 echo "---> Configure autologin"
-sudo mkdir /etc/lightdm/lightdm.conf.d
+sudo mkdir -p /etc/lightdm/lightdm.conf.d
 sudo cp ~/raspi-netmon-v2/installer/etc/lightdm/lightdm.conf.d/autologin.conf \
   /etc/lightdm/lightdm.conf.d
 
@@ -35,7 +35,7 @@ sudo systemctl enable promiscuous@eth0.service
 sudo systemctl enable promiscuous@wlan0.service
 
 echo "---> Add netmon to autostart"
-mkdir ~/.config/openbox
+mkdir -p ~/.config/openbox
 cp ~/raspi-netmon-v2/installer/.config/openbox/autostart ~/.config/openbox
 
 echo "---> Enable tmpfs for tcpdump"
