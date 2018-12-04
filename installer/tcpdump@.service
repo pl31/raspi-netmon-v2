@@ -1,8 +1,8 @@
 [Unit]
-Description=tcpdump eth0
+Description=tcpdump %i
 
 [Service]
-ExecStart=/home/pi/raspi-netmon-v2/netmon/tcpdump_eth0.sh
+ExecStart=/home/pi/raspi-netmon-v2/netmon/tcpdump.sh %i
 #StandardOutput=inherit
 #StandardError=inherit
 Restart=always
