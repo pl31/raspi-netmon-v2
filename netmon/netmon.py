@@ -29,9 +29,10 @@ class Application:
         if (fullscreen):
             self.mainwindow.attributes("-fullscreen", True)
 
+        # 6: prepare styling
         self.style = ThemedStyle(self.mainwindow)
-        self.style.theme_use('radiance')
-        # equilux, radiance, (arc)
+        self.current_style = 'radiance'
+        self.alarm = False
 
         # set interface vars & update ui
         self.if1 = if1
@@ -75,16 +76,39 @@ class Application:
         self.dateVar.set(now.date().isoformat())
         self.timeVar.set(now.strftime('%H:%M:%S'))
         # if1
+        delta_if1 = self.get_rx_packets_delta(self.if1)
         self.if1ipVar.set(self.get_ip(self.if1))
-        self.if1rxVar.set('{} pkts/s'.format(self.get_rx_packets_delta(self.if1)))
+        self.if1rxVar.set('{} pkts/s'.format(delta_if1))
         # if2
+        delta_if2 = self.get_rx_packets_delta(self.if2)
         self.if2ipVar.set(self.get_ip(self.if2))
-        self.if2rxVar.set('{} pkts/s'.format(self.get_rx_packets_delta(self.if2)))
+        self.if2rxVar.set('{} pkts/s'.format(delta_if2))
+
+        # check alarmstate, and set style accordingly
+        alarm = delta_if1 > 1000 or delta_if2 > 1000
+        if alarm != self.alarm:
+            if alarm:
+                self.style.theme_use('kroc')
+            else:
+                self.style.theme_use(self.current_style)
+            self.alarm = alarm
 
         # wait to update, always to "full" second
         self.mainwindow.after(
             1000 - (datetime.datetime.now().microsecond // 1000),
             self.update_values)
+
+    def change_style(self):
+        if self.current_style == 'radiance':
+            self.current_style = 'equilux'
+        else:
+            self.current_style = 'radiance'
+
+        if not self.alarm:
+            self.style.theme_use(self.current_style)
+
+        self.mainwindow.after(1 * 60 * 1000,
+            self.change_style)
 
     def run(self):
         self.last_rx_packets = {
@@ -92,6 +116,7 @@ class Application:
             self.if2: None
             }
         self.update_values()
+        self.change_style()
         self.mainwindow.mainloop()
 
 
@@ -104,6 +129,7 @@ if __name__ == '__main__':
 
     fullscreen = True
     app = Application('eth0', 'wlan0', fullscreen)
+    #app = Application('enp3s0', 'lo', fullscreen)
     app.run()
 
 
