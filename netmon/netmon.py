@@ -107,7 +107,7 @@ class Application:
         if not self.alarm:
             self.style.theme_use(self.current_style)
 
-        self.mainwindow.after(1 * 60 * 1000,
+        self.mainwindow.after(10 * 60 * 1000,
             self.change_style)
 
     def run(self):
