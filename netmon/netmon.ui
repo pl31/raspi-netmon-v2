@@ -5,7 +5,7 @@
     <property name="resizable">none</property>
     <property name="title" translatable="yes">netmon</property>
     <child>
-      <object class="ttk.Frame" id="frame">
+      <object class="ttk.Frame" id="mainframe">
         <property name="height">320</property>
         <property name="width">240</property>
         <layout>

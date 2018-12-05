@@ -28,6 +28,7 @@ class Application:
         # 5: optional fullscreen
         if (fullscreen):
             self.mainwindow.attributes("-fullscreen", True)
+            self.builder.get_object('mainframe').config(cursor='none')
 
         self.style = ThemedStyle(self.mainwindow)
         self.style.theme_use('radiance')
@@ -35,9 +36,9 @@ class Application:
 
         # set interface vars & update ui
         self.if1 = if1
-        self.builder.get_object('if1_labelframe').config(text = if1)
+        self.builder.get_object('if1_labelframe').config(text=if1)
         self.if2 = if2
-        self.builder.get_object('if2_labelframe').config(text = if2)
+        self.builder.get_object('if2_labelframe').config(text=if2)
         # bind ui-vars to local-vars
         self.dateVar = self.builder.get_variable('dateVar')
         self.timeVar = self.builder.get_variable('timeVar')
