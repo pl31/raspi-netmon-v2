@@ -28,7 +28,6 @@ class Application:
         # 5: optional fullscreen
         if (fullscreen):
             self.mainwindow.attributes("-fullscreen", True)
-            self.mainwindow.config(cursor='none')
 
         self.style = ThemedStyle(self.mainwindow)
         self.style.theme_use('radiance')

@@ -56,7 +56,6 @@
             </layout>
             <child>
               <object class="ttk.Label" id="datelabel">
-                <property name="cursor">arrow</property>
                 <property name="font">{FreeSans} 14 {}</property>
                 <property name="text" translatable="yes">date</property>
                 <layout>
