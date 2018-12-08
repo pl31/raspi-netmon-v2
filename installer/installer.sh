@@ -25,6 +25,10 @@ git clone --depth=1 https://github.com/pl31/raspi-netmon-v2.git ~/raspi-netmon-v
 echo "---> Copy modules-load.d"
 sudo cp ~/raspi-netmon-v2/installer/etc/modules-load.d/* /etc/modules-load.d/
 
+echo "---> Enable gpio2key service"
+sudo cp ~/raspi-netmon-v2/installer/gpio2key.service /etc/systemd/system
+sudo systemctl enable gpio2key.service
+
 echo "---> Configure autologin"
 sudo mkdir -p /etc/lightdm/lightdm.conf.d
 sudo cp ~/raspi-netmon-v2/installer/etc/lightdm/lightdm.conf.d/autologin.conf \

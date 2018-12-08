@@ -1,0 +1,9 @@
+[Unit]
+Description=gpio2key
+
+[Service]
+ExecStart=/home/pi/raspi-netmon-v2/netmon/gpio2key.py
+Restart=always
+
+[Install]
+WantedBy=multi-user.target
