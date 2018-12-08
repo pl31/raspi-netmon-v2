@@ -12,7 +12,7 @@ sudo apt -y upgrade
 echo "---> Install required packages"
 sudo apt install -y git lighttpd tcpdump \
   python3-setuptools python3-setuptools-git python3-pip python3-netifaces python3-tk \
-  xorg openbox lightdm unclutter uinput
+  xorg openbox lightdm unclutter
 
 echo "---> Install required python packages"
 sudo pip3 install python-uinput RPi.GPIO pygubu ttkthemes
