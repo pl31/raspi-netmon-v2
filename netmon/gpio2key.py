@@ -5,10 +5,10 @@ import uinput
 import RPi.GPIO as GPIO
 
 gpios = [
-	{ "channel": 17, "key": uinput.KEY_X },
-	{ "channel": 22, "key": uinput.KEY_H },
-	{ "channel": 23, "key": uinput.KEY_E },
-	{ "channel": 27, "key": uinput.KEY_L }
+	{ "channel": 17, "key": uinput.KEY_F5 },
+	{ "channel": 22, "key": uinput.KEY_F6 },
+	{ "channel": 23, "key": uinput.KEY_F7 },
+	{ "channel": 27, "key": uinput.KEY_F8 }
 ]
 
 # initialize gpios
