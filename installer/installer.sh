@@ -41,9 +41,9 @@ sudo cp ~/raspi-netmon-v2/installer/promiscuous@.service /etc/systemd/system
 sudo systemctl enable promiscuous@eth0.service
 sudo systemctl enable promiscuous@wlan0.service
 
-echo "---> Add netmon to autostart"
+echo "---> Add openbox configuration (keyboard + autostart)"
 mkdir -p ~/.config/openbox
-cp ~/raspi-netmon-v2/installer/.config/openbox/autostart ~/.config/openbox
+cp ~/raspi-netmon-v2/installer/.config/openbox/* ~/.config/openbox
 
 echo "---> Enable tmpfs for tcpdump"
 sudo cp ~/raspi-netmon-v2/installer/var-run-tcpdump.mount /etc/systemd/system
