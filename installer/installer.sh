@@ -12,15 +12,18 @@ sudo apt -y upgrade
 echo "---> Install required packages"
 sudo apt install -y git lighttpd tcpdump \
   python3-setuptools python3-setuptools-git python3-pip python3-netifaces python3-tk \
-  xorg openbox lightdm unclutter
+  xorg openbox lightdm unclutter uinput
 
 echo "---> Install required python packages"
-sudo pip3 install pygubu
-sudo pip3 install ttkthemes
+sudo pip3 install python-uinput RPi.GPIO pygubu ttkthemes
+sudo pip3 install
 
 echo "---> Freshly clone repository to home folder"
 rm -rf ~/raspi-netmon-v2/
 git clone --depth=1 https://github.com/pl31/raspi-netmon-v2.git ~/raspi-netmon-v2/
+
+echo "---> Copy modules-load.d"
+sudo cp ~/raspi-netmon-v2/installer/etc/modules-load.d/* /etc/modules-load.d/
 
 echo "---> Configure autologin"
 sudo mkdir -p /etc/lightdm/lightdm.conf.d

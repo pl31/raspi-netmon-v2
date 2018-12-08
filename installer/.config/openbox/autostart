@@ -1,1 +1,2 @@
+sudo python3 ~/raspi-netmon-v2/netmon/gpio2key.py &
 python3 ~/raspi-netmon-v2/netmon/netmon.py &
