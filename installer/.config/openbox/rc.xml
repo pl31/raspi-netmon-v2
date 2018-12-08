@@ -4,7 +4,7 @@
 		xmlns:xi="http://www.w3.org/2001/XInclude">
 
 <keyboard>
-	<!-- Keybindings for netmon GPIOs -->
+	<!-- Keybindings for netmon GPIOs (see file netmon/gpio2key.py) -->
 	<keybind key="F5">
 		<action name="Execute">
 			<startupnotify>
