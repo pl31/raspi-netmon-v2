@@ -15,8 +15,7 @@ sudo apt install -y git lighttpd tcpdump \
   xorg openbox lightdm unclutter
 
 echo "---> Install required python packages"
-sudo pip3 install python-uinput RPi.GPIO pygubu ttkthemes
-sudo pip3 install
+sudo -E pip3 install python-uinput RPi.GPIO pygubu ttkthemes
 
 echo "---> Freshly clone repository to home folder"
 rm -rf ~/raspi-netmon-v2/
