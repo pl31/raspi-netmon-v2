@@ -12,6 +12,7 @@ sudo apt -y upgrade
 echo "---> Install required packages"
 sudo -E apt install -y git lighttpd tcpdump \
   python3-setuptools python3-setuptools-git python3-pip python3-netifaces python3-tk \
+  python3-pil python3-appdirs \
   xorg openbox lightdm unclutter
 
 echo "---> Install required python packages"
