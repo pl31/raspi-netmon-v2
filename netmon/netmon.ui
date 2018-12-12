@@ -188,11 +188,40 @@
                 <property name="takefocus">false</property>
                 <property name="text" translatable="yes"> pkgs/s</property>
                 <property name="textvariable">string:if1rxVar</property>
-                <property name="width">14</property>
+                <property name="width">18</property>
                 <layout>
                   <property name="column">1</property>
                   <property name="propagate">True</property>
                   <property name="row">1</property>
+                  <property name="sticky">ew</property>
+                </layout>
+              </object>
+            </child>
+            <child>
+              <object class="ttk.Label" id="if1_tputlabel">
+                <property name="font">{FreeSans} 14 {}</property>
+                <property name="text" translatable="yes">t</property>
+                <layout>
+                  <property name="column">0</property>
+                  <property name="propagate">True</property>
+                  <property name="row">2</property>
+                  <property name="sticky">w</property>
+                </layout>
+              </object>
+            </child>
+            <child>
+              <object class="ttk.Entry" id="if1_tputvalue">
+                <property name="font">{FreeMono} 14 {}</property>
+                <property name="justify">right</property>
+                <property name="state">readonly</property>
+                <property name="takefocus">false</property>
+                <property name="text" translatable="yes"> Kb/s</property>
+                <property name="textvariable">string:if1TputVar</property>
+                <property name="width">18</property>
+                <layout>
+                  <property name="column">1</property>
+                  <property name="propagate">True</property>
+                  <property name="row">2</property>
                   <property name="sticky">ew</property>
                 </layout>
               </object>
@@ -273,11 +302,40 @@
                 <property name="takefocus">false</property>
                 <property name="text" translatable="yes"> pkgs/s</property>
                 <property name="textvariable">string:if2rxVar</property>
-                <property name="width">14</property>
+                <property name="width">18</property>
                 <layout>
                   <property name="column">1</property>
                   <property name="propagate">True</property>
                   <property name="row">1</property>
+                  <property name="sticky">ew</property>
+                </layout>
+              </object>
+            </child>
+            <child>
+              <object class="ttk.Label" id="if2_tputlabel">
+                <property name="font">{FreeSans} 14 {}</property>
+                <property name="text" translatable="yes">t</property>
+                <layout>
+                  <property name="column">0</property>
+                  <property name="propagate">True</property>
+                  <property name="row">2</property>
+                  <property name="sticky">w</property>
+                </layout>
+              </object>
+            </child>
+            <child>
+              <object class="ttk.Entry" id="if2_tputvalue">
+                <property name="font">{FreeMono} 14 {}</property>
+                <property name="justify">right</property>
+                <property name="state">readonly</property>
+                <property name="takefocus">false</property>
+                <property name="text" translatable="yes"> Kb/s</property>
+                <property name="textvariable">string:if2TputVar</property>
+                <property name="width">18</property>
+                <layout>
+                  <property name="column">1</property>
+                  <property name="propagate">True</property>
+                  <property name="row">2</property>
                   <property name="sticky">ew</property>
                 </layout>
               </object>

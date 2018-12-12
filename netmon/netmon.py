@@ -44,8 +44,10 @@ class Application:
         self.timeVar = self.builder.get_variable('timeVar')
         self.if1ipVar = self.builder.get_variable('if1ipVar')
         self.if1rxVar = self.builder.get_variable('if1rxVar')
+        self.if1TputVar = self.builder.get_variable('if1TputVar')
         self.if2ipVar = self.builder.get_variable('if2ipVar')
         self.if2rxVar = self.builder.get_variable('if2rxVar')
+        self.if2TputVar = self.builder.get_variable('if2TputVar')
 
     def get_rx_packets_delta(self, interface):
         f_name = '/sys/class/net/{}/statistics/rx_packets'.format(interface)
@@ -59,6 +61,28 @@ class Application:
             return rx_packets_delta
         except:
             return '-'
+
+    def get_bytes_delta(self, interface):
+        r_name = '/sys/class/net/{}/statistics/rx_bytes'.format(interface)
+        t_name = '/sys/class/net/{}/statistics/tx_bytes'.format(interface)
+        try:
+            with open(r_name) as r:
+                rx_bytes = int(r.read().strip())
+            with open(t_name) as t:
+                tx_bytes = int(t.read().strip())
+            if (not self.last_rx_bytes[interface]):
+                self.last_rx_bytes[interface] = rx_bytes
+            if (not self.last_tx_bytes[interface]):
+                self.last_tx_bytes[interface] = tx_bytes
+            rx_bytes_delta = rx_bytes - self.last_rx_bytes[interface]
+            tx_bytes_delta = tx_bytes - self.last_tx_bytes[interface]
+            self.last_rx_bytes[interface] = rx_bytes
+            self.last_tx_bytes[interface] = tx_bytes
+            bytes_delta = rx_bytes_delta + tx_bytes_delta
+            return bytes_delta
+        except:
+            return '-'
+
 
     def get_ip(self, interface):
         try:
@@ -83,6 +107,15 @@ class Application:
         delta_if2 = self.get_rx_packets_delta(self.if2)
         self.if2ipVar.set(self.get_ip(self.if2))
         self.if2rxVar.set('{} pkts/s'.format(delta_if2))
+
+        # if1 bytes
+        delta_if1_bytes = self.get_bytes_delta(self.if1)
+        # convert Byte to Mbit and write to output
+        self.if1TputVar.set('{0:.2f} Kb/s'.format(delta_if1_bytes / 128))
+        # if2 bytes
+        delta_if2_bytes = self.get_bytes_delta(self.if2)
+        # convert Byte to Mbit and write to output
+        self.if2TputVar.set('{0:.2f} Kb/s'.format(delta_if2_bytes / 128))
 
         # check alarmstate, and set style accordingly
         alarm = delta_if1 > 1000 or delta_if2 > 1000
@@ -112,6 +145,14 @@ class Application:
 
     def run(self):
         self.last_rx_packets = {
+            self.if1: None,
+            self.if2: None
+            }
+        self.last_rx_bytes = {
+            self.if1: None,
+            self.if2: None
+            }
+        self.last_tx_bytes = {
             self.if1: None,
             self.if2: None
             }
