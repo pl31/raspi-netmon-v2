@@ -114,9 +114,9 @@ class Application:
         delta_if1_bit = delta_if1_bytes * 8
         # convert to human readable based on load
         if (delta_if1_bit / 1024) < 1024:
-            self.if1TputVar.set('{0:.2f} Kb/s'.format(delta_if1_bit / 1024))
+            self.if1TputVar.set('{0:.2f} Kbit/s'.format(delta_if1_bit / 1024))
         else:
-            self.if1TputVar.set('{0:.2f} Mb/s'.format((delta_if1_bit / 1024) / 1024))
+            self.if1TputVar.set('{0:.2f} Mbit/s'.format((delta_if1_bit / 1024) / 1024))
         
         # if2 bytes
         delta_if2_bytes = self.get_bytes_delta(self.if2)
@@ -124,9 +124,9 @@ class Application:
         delta_if2_bit = delta_if2_bytes * 8
         # convert to human readable based on load
         if (delta_if2_bit / 1024) < 1024:
-            self.if2TputVar.set('{0:.2f} Kb/s'.format(delta_if2_bit / 1024))
+            self.if2TputVar.set('{0:.2f} Kbit/s'.format(delta_if2_bit / 1024))
         else:
-            self.if2TputVar.set('{0:.2f} Mb/s'.format((delta_if2_bit / 1024) / 1024))
+            self.if2TputVar.set('{0:.2f} Mbit/s'.format((delta_if2_bit / 1024) / 1024))
 
         # check alarmstate, and set style accordingly
         alarm = delta_if1 > 1000 or delta_if2 > 1000
