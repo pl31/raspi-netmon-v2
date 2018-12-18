@@ -151,7 +151,13 @@ class Application:
         if not self.alarm:
             self.style.theme_use(self.current_style)
 
-        self.mainwindow.after(10 * 60 * 1000,
+        # calculate time to next full 10 min (10, 20, 30, ...)
+        now = datetime.datetime.now()
+        deltatime = ((now.minute % 10) * (60 * 1000)) + (now.second * 1000) + now.microsecond // 1000
+        waittime = (10 * 60 * 1000) - deltatime
+
+        # wait to change style
+        self.mainwindow.after(waittime,
             self.change_style)
 
     def run(self):
