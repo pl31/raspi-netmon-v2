@@ -143,7 +143,9 @@ class Application:
             self.update_values)
 
     def change_style(self):
-        if self.current_style == 'radiance':
+        now = datetime.datetime.now()
+        # sync color change - even to radiance - odd to equilux
+        if now.minute // 10 % 2:
             self.current_style = 'equilux'
         else:
             self.current_style = 'radiance'
@@ -152,7 +154,6 @@ class Application:
             self.style.theme_use(self.current_style)
 
         # calculate time to next full 10 min (10, 20, 30, ...)
-        now = datetime.datetime.now()
         deltatime = ((now.minute % 10) * (60 * 1000)) + (now.second * 1000) + now.microsecond // 1000
         waittime = (10 * 60 * 1000) - deltatime
 
