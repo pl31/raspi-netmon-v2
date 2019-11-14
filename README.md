@@ -42,8 +42,8 @@ Mouse might be inverted, when PiTFT was installed before xorg. Make sure that
 
 ```
 Section "InputClass"
-        Identifier "FocalTech Touchscreen Calibration"
-        MatchProduct "EP0110M09"
+        Identifier "Touchscreen Calibration"
+        MatchIsTouchScreen "on" 
         MatchDevicePath "/dev/input/event*"
         Driver "libinput"
         Option "TransformationMatrix" "-1 0 1 0 -1 1 0 0 1"
